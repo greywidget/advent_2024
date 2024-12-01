@@ -1,8 +1,24 @@
+from collections import Counter
 from pathlib import Path
 
 
 def _get_ints(data: list[str]):
     return (int(data[0]), int(data[1]))
+
+
+def part_one(list1, list2):
+    print("\nPart One")
+    print("=" * 8)
+    data = zip(sorted(list1), sorted(list2))
+    print(sum(abs(first - second) for first, second in data))
+
+
+def part_two(list1, list2):
+    print("\nPart Two")
+    print("=" * 8)
+    counter = Counter(list2)
+    print(sum(item * counter.get(item, 0) for item in list1))
+    print()
 
 
 def main():
@@ -19,8 +35,8 @@ def main():
             list2.append(second)
             line = f.readline()
 
-    data = zip(sorted(list1), sorted(list2))
-    print(sum(abs(first - second) for first, second in data))
+    part_one(list1, list2)
+    part_two(list1, list2)
 
 
 if __name__ == "__main__":
