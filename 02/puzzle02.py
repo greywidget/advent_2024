@@ -1,3 +1,4 @@
+from copy import copy
 from operator import gt, lt
 from pathlib import Path
 
@@ -39,36 +40,39 @@ def _report_safe(report):
     return True
 
 
-def part_one(puzzle_data):
+def process(puzzle_data, dampen=False):
     safe_count = 0
     for report in puzzle_data:
         if _report_safe(report):
             safe_count += 1
+        elif dampen:
+            levels = len(report)
+            for level in range(levels):
+                temp_report = copy(report)
+                temp_report.pop(level)
+                if _report_safe(temp_report):
+                    safe_count += 1
+                    break
 
     return safe_count
 
 
-# def part_two(list1, list2):
-#     counter = Counter(list2)
-#     return sum(item * counter.get(item, 0) for item in list1)
-#     print()
-
-
 def solve(puzzle=1, puzzle_data=puzzle_data):
     if puzzle == 1:
-        return part_one(puzzle_data)
-    # elif puzzle == 2:
-    #     return part_two(puzzle_data)
+        return process(puzzle_data)
+    elif puzzle == 2:
+        return process(puzzle_data, dampen=True)
 
 
 def main():
     print("\nPart One")
     print("=" * 8)
-    print(part_one(puzzle_data=puzzle_data))
+    print(solve(puzzle=1))
 
-    # print("\nPart Two")
-    # print("=" * 8)
-    # print()
+    print("\nPart Two")
+    print("=" * 8)
+    print(solve(puzzle=2))
+    print()
 
 
 if __name__ == "__main__":

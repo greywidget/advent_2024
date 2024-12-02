@@ -18,9 +18,9 @@ def test_day02_puzzle01_solved():
     assert solve(puzzle=1) == 421
 
 
-# def test_day02_puzzle02():
-#     assert solve(puzzle=2,  puzzle_data=puzzle_data) == 31
+def test_day02_puzzle02():
+    assert solve(puzzle=2, puzzle_data=puzzle_data) == 4
 
 
-# def test_day02_puzzle02_solved():
-#     assert solve(puzzle=2) == 24349736
+def test_day02_puzzle02_solved():
+    assert solve(puzzle=2) == 476
