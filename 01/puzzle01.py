@@ -40,7 +40,7 @@ def solve(puzzle=1, list1=left, list2=right):
     if puzzle == 1:
         return part_one(list1, list2)
     elif puzzle == 2:
-        return part_two(list1=left, list2=right)
+        return part_two(list1, list2)
 
 
 def main():

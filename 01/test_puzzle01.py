@@ -10,3 +10,11 @@ def test_day01_puzzle01():
 
 def test_day01_puzzle01_solved():
     assert solve(puzzle=1) == 1189304
+
+
+def test_day01_puzzle02():
+    assert solve(puzzle=2, list1=list1, list2=list2) == 31
+
+
+def test_day01_puzzle02_solved():
+    assert solve(puzzle=2) == 24349736
