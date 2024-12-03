@@ -14,7 +14,7 @@ In the regular expression below, there are two main parts:
 
   within the second part there are two sub parts:
   - (\d{1,3}) captures the first digit, this is Group(2)
-  - (\d{1,3}) captures the first digit, this is Group(3)
+  - (\d{1,3}) captures the second digit, this is Group(3)
 
 Essentially at the top level we get a "do", a "don't" or a "mul"
 
