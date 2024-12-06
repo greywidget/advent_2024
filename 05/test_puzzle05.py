@@ -41,16 +41,13 @@ def test_day5_puzzle01():
     assert solve(puzzle=1, puzzle_data=puzzle_data) == 143
 
 
-def test_day05_puzzle01_solved():
+def test_day5_puzzle01_solved():
     assert solve(puzzle=1) == 6951
 
 
-# def test_day4_puzzle02():
-#     assert solve(puzzle=2, puzzle_data=puzzle_data) == 9
+def test_day5_puzzle02():
+    solve(puzzle=2, puzzle_data=puzzle_data)
 
 
-# def test_day04_puzzle02_solved():
-#     assert solve(puzzle=2) == 1864
-
-if __name__ == "__main__":
-    test_day5_puzzle01()
+def test_day5_puzzle02_solved():
+    assert solve(puzzle=2) == 4121
