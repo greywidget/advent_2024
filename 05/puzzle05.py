@@ -38,7 +38,7 @@ def next_update(update_data):
 
 def middle_page(update):
     pos = len(update) // 2
-    for index, item in enumerate(update.keys()):
+    for index, item in enumerate(update):
         if index == pos:
             return item
 
@@ -54,7 +54,7 @@ def badly_ordered(update, rule_data):
     Return rule if there's a problem, else False
     """
     for rule in next_rule(rule_data):
-        if all(item in update.keys() for item in rule):
+        if all(item in update for item in rule):
             first, second = rule
             if update[first] > update[second]:
                 return rule
