@@ -26,39 +26,6 @@ def _import_data():
 
 puzzle_data = _import_data()
 
-rule_data = [
-    "47|53",
-    "97|13",
-    "97|61",
-    "97|47",
-    "75|29",
-    "61|13",
-    "75|53",
-    "29|13",
-    "97|29",
-    "53|29",
-    "61|53",
-    "97|53",
-    "61|29",
-    "47|13",
-    "75|47",
-    "97|75",
-    "47|61",
-    "75|61",
-    "47|29",
-    "75|13",
-    "53|13",
-]
-
-update_data = [
-    "75,47,61,53,29",
-    "97,61,53,29,13",
-    "75,29,13",
-    "75,97,47,61,53",
-    "61,13,29",
-    "97,13,75,29,47",
-]
-
 
 def generate_graph(pages, rules) -> dict:
     graph = defaultdict(list)
@@ -104,11 +71,10 @@ def topological_sort(graph):
     return list(order)
 
 
-def solve():
+def solve(puzzle=1, puzzle_data=puzzle_data):
     rule_data, update_data = puzzle_data
 
-    correct_middle_page_sum = 0
-    corrected_middle_page_sum = 0
+    middle_page_sum = 0
 
     rules = [
         (int(first), int(second))
@@ -118,17 +84,23 @@ def solve():
         pages = [int(page) for page in update.split(",")]
         graph = generate_graph(pages, rules)
         list = topological_sort(graph)
-        if list == pages:
-            correct_middle_page_sum += middle_page(pages)
-        else:
-            corrected_middle_page_sum += middle_page(list)
+        if puzzle == 1 and list == pages:
+            middle_page_sum += middle_page(pages)
+        elif puzzle == 2 and list != pages:
+            middle_page_sum += middle_page(list)
 
-    print(f"{correct_middle_page_sum=}")
-    print(f"{corrected_middle_page_sum=}")
+    return middle_page_sum
 
 
 def main():
-    solve()
+    print("\nPart One")
+    print("=" * 8)
+    print(solve(puzzle=1))
+
+    print("\nPart Two")
+    print("=" * 8)
+    print(solve(puzzle=2))
+    print()
 
 
 if __name__ == "__main__":
