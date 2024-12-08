@@ -46,7 +46,7 @@ def test_day5_puzzle01_solved():
 
 
 def test_day5_puzzle02():
-    solve(puzzle=2, puzzle_data=puzzle_data)
+    assert solve(puzzle=2, puzzle_data=puzzle_data) == 123
 
 
 def test_day5_puzzle02_solved():
